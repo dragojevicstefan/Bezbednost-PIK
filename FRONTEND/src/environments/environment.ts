@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8081'
+  baseUrl: 'http://localhost:8081',
+  login: '/login',
+  admin:'/admin',
+  user:'/user'
 };
 
 /*
