@@ -1,15 +1,16 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
-      <mat-toolbar>Meni</mat-toolbar>
+      <mat-toolbar>Menu</mat-toolbar>
         <mat-nav-list *ngIf = "isNone()">
-          <a mat-list-item routerLink="/login">Prijavi se</a>
+          <a mat-list-item routerLink="/login">Log in</a>
         </mat-nav-list>
-  
+
         <mat-nav-list *ngIf="isAdmin()">
-          <a mat-list-item routerLink="/login">Napravi sertifikat</a>
-          <a mat-list-item routerLink="/login">Lista sertifikata</a>
-          <a mat-list-item (click)="onLogout()">Odjavi se</a>
+          <a mat-list-item routerLink="/admin/add-certificate">Add Certificate</a>
+          <a mat-list-item routerLink="/admin/add-selfsigned">Add SelfSigned Certificate</a>
+          <a mat-list-item routerLink="/admin/all-certificates">All Certificates</a>
+          <a mat-list-item (click)="onLogout()">Log out</a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

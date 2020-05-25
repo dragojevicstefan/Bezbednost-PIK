@@ -8,12 +8,18 @@ import { DemoMaterialModule } from './material-module';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminHomePageComponent } from './components/admin-home-page/admin-home-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddCertificateComponent } from './components/add-certificate/add-certificate.component';
+import { AddSelfsignedComponent } from './components/add-selfsigned/add-selfsigned.component';
+import { AllCertificatesComponent } from './components/all-certificates/all-certificates.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponentComponent,
     AdminHomePageComponent,
+    AddCertificateComponent,
+    AddSelfsignedComponent,
+    AllCertificatesComponent,
   ],
   imports: [
     BrowserModule,

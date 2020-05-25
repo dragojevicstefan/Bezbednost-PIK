@@ -15,15 +15,15 @@ export class AppComponent {
   constructor(
     private router: Router,
     private breakpointObserver: BreakpointObserver,
-    private userService:UserService
+    private userService: UserService
     ) { }
-  
+
     isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
       .pipe(
         map((result) => result.matches),
         shareReplay()
       );
-  
+
       public isLoggedIn() {
         return this.userService.isLoggedIn();
       }
