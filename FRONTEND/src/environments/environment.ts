@@ -4,10 +4,11 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8081',
+  baseUrl: 'https://localhost:8443',
   login: '/login',
   admin:'/admin',
-  user:'/user'
+  user:'/user',
+  certificate:'/certificate'
 };
 
 /*
