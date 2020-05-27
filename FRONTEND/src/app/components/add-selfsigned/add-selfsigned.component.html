@@ -4,49 +4,47 @@
     <form name="certificateForm" #f="ngForm" (ngSubmit)="generateSelfSignedCertificate()" novalidate class="feedback-form">
 
       <div class="form-group">
-        <label for="startDate">Vazi od:</label>
-        <input type="date" id="startDate"
-               class="form-control"
-               name="startDate"
-               placeholder="Datum izdavanja"
-               [(ngModel)]="model.startDate"/>
-      </div>
-      <div class="form-group">
-        <label for="endDate">Vazi do:</label>
-        <input type="date" id="endDate"
-               class="form-control"
-               name="endDate"
-               placeholder="Datum isticanja"
-               [(ngModel)]="model.endDate"/>
-      </div>
-
-
-      <div class="form-group" style="margin-top:20px;">
-        <h4><b>Podaci o izdavaocu(klijentu)</b></h4>
-        <label>Drzava:</label>
+        <h4><b>Client data:</b></h4>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text"
+                 placeholder="Name"
+                 class="form-control" name="name"
+                 [(ngModel)]="model.name"
+          />
+        </div>
+        <div class="form-group">
+          <label>Surname:</label>
+          <input type="text" name="surname"
+                 placeholder="Surname"
+                 class="form-control"
+                 [(ngModel)]="model.surname"
+          />
+        </div>
+        <label>Country:</label>
         <input type="text" name="country"
-               placeholder="Drzava"
+               placeholder="Country"
                class="form-control"
                [(ngModel)]="model.country"
         />
       </div>
-      <div class="form-group" style="margin-top:20px;">
-        <label>Organizacija:</label>
+      <div class="form-group">
+        <label>Organization:</label>
         <input type="text" name="organization"
-               placeholder="Organizacija"
+               placeholder="Organization"
                class="form-control"
                [(ngModel)]="model.organization"
         />
       </div>
-      <div class="form-group" style="margin-top:20px;">
-        <label>Organizaciona jedinica:</label>
+      <div class="form-group">
+        <label>Organization unit:</label>
         <input type="text"
-               placeholder="Organizaciona jedinica"
+               placeholder="Organization unit"
                class="form-control" name="organizationUnit"
                [(ngModel)]="model.organizationUnit"
         />
       </div>
-      <div class="form-group" style="margin-top:20px;">
+      <div class="form-group">
         <label>E-mail:</label>
         <input type="email"
                placeholder="example@example.com"
@@ -55,24 +53,24 @@
 
         />
       </div>
-      <div class="form-group" style="margin-top:20px;">
-        <label>Ime:</label>
-        <input type="text"
-               placeholder="Ime"
-               class="form-control" name="name"
-               [(ngModel)]="model.name"
-        />
-      </div>
-      <div class="form-group" style="margin-top:20px;">
-        <label>Prezime:</label>
-        <input type="text" name="surname"
-               placeholder="Prezime"
+      <div class="form-group">
+        <label for="startDate">Start date:</label>
+        <input type="date" id="startDate"
                class="form-control"
-               [(ngModel)]="model.surname"
-        />
+               name="startDate"
+               placeholder="Start date"
+               [(ngModel)]="model.startDate"/>
       </div>
-      <div class="form-group" style="margin-top:20px;">
-        <input type="submit" class="btn btn-danger" value="Generisi sertifikat" />
+      <div class="form-group">
+        <label for="endDate">End date:</label>
+        <input type="date" id="endDate"
+               class="form-control"
+               name="endDate"
+               placeholder="End date"
+               [(ngModel)]="model.endDate"/>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-danger" value="Generate certificate" />
       </div>
     </form>
   </div>

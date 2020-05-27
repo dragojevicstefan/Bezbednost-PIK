@@ -32,7 +32,6 @@ public class KeystoreService  {
         char[] keyStorePasswordChars=keyStorePassword.toCharArray();
         char[] keyPasswordChars=keyPassword.toCharArray();
 
-        // znaci get Key store pokusava da pronadje keyStore na zadatoj putanji,ako ga ne pronadje kreira novi
         KeyStore keyStore=getKeyStore(keyStorePath,keyStorePassword);
         KeyStore.PrivateKeyEntry privKeyEntry = new KeyStore.PrivateKeyEntry(privateKey,
                 chain);

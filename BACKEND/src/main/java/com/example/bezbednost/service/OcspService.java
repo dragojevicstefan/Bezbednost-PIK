@@ -31,7 +31,6 @@ public class OcspService  {
     private  KeystoreService keystoreService;
     @Autowired
     private  KeyService keyService;
-  //  private  DtoUtils mapper;
   @Autowired
     private CertificateRepo certificateRepository;
 

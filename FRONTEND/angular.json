@@ -27,9 +27,7 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": [{
-              "start": "ng serve --ssl --ssl-key C:\\projekat\\bezb\\Bezbednost-PIK\\BACKEND\\localhost.key  --ssl-cert C:\\projekat\\bezb\\Bezbednost-PIK\\BACKEND\\localhost.crt"
-            }]
+            "scripts": []
           },
           "configurations": {
             "production": {

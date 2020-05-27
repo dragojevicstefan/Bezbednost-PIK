@@ -41,7 +41,7 @@ export class AddCertificateComponent implements OnInit {
   }
 
   generateCertificate(): void {
-    const url = 'http://localhost:8081/certificate';
+    const url = 'https://localhost:8443/certificate';
 
 
     this.http.post(url, this.model).subscribe(

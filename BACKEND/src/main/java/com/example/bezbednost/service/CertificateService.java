@@ -51,7 +51,6 @@ public class CertificateService{
         KeyStore keyStore=keystoreService.getKeyStore(keyService.getKeyStorePath(),keyService.getKeyStorePass());
         PrivateKey privKey = null;
         X500Name issuer=null;
-        //smisliti jedinstveno
         if(subjectDto.getPrivateKey().equals(issuerDto.getPrivateKey())){
             issuer=subjectDto.getX500Name();
             privKey=subjectDto.getPrivateKey();
@@ -91,7 +90,6 @@ public class CertificateService{
     }
 
 
-    // izmodikovati
 
     public X500Name getX500NameSubject(SubjectDto subjectDto)  {
         SubjectData subject = (SubjectData) new DtoUtils().convertToEntity(new SubjectData(),subjectDto);
@@ -107,38 +105,6 @@ public class CertificateService{
         return builder.build();
     }
 
-
-    public X500Name getX500NameIssuer() {
-        X500NameBuilder builder=new X500NameBuilder(BCStyle.INSTANCE);
-
-        builder.addRDN(BCStyle.CN,"Marko Markovic");
-        builder.addRDN(BCStyle.O, "Fakultet Tehnickih nauka");
-        builder.addRDN(BCStyle.C,"Srbija");
-        builder.addRDN(BCStyle.OU,"Tim8");
-        builder.addRDN(BCStyle.E,"marko.markovic@gmai.com");
-        builder.addRDN(BCStyle.NAME,"Marko");
-        builder.addRDN(BCStyle.GIVENNAME,"Markovic");
-        return builder.build();
-    }
-
-
-    public Certificate[] getCertificateChain(String alias, Certificate certificate) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        return new Certificate[0];
-    }
-
-
-    public Certificate[] getCertificateChain(String alias,X509Certificate certificate) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        KeyStore keyStore = keystoreService.getKeyStore(keyService.getKeyStorePath(),keyService.getKeyStorePass());
-        Certificate[] chain=keyStore.getCertificateChain(alias);
-        List<Certificate> certificateList= new ArrayList<>(Arrays.asList(chain));
-        certificateList.add(0, certificate);
-
-        Certificate[] newChain=new Certificate[certificateList.size()];
-        for(int i=0;i<certificateList.size();i++){
-            newChain[i]=certificateList.get(i);
-        }
-        return newChain;
-    }
 
 
     public void download(CertificateDto certificateDto) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {

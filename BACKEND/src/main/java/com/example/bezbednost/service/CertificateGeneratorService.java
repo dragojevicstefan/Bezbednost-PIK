@@ -42,11 +42,6 @@ public class CertificateGeneratorService {
     }
 
 
-    public X509Certificate generateCertificate(SubjectData subjectData, IssuerData issuerData) {
-        return null;
-    }
-
-
     public ArrayList<Certificate> getAllCertificates() {
 
         ArrayList<Certificate> sertifikati = new ArrayList();

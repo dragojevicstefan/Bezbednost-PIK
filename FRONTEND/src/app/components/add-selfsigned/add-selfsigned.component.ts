@@ -35,7 +35,7 @@ export class AddSelfsignedComponent implements OnInit {
 
 
   generateSelfSignedCertificate() {
-    const url = 'http://localhost:8081/certificate/selfSigned/generate';
+    const url = 'https://localhost:8443/certificate/selfSigned/generate';
     this.http.post(url, this.model).subscribe(
       res => {
         this.router.navigate(['/admin/home']);

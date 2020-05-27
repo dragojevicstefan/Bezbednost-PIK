@@ -11,7 +11,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class AllCertificatesComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
-  displayedColumns: string[] = ['issName', 'issOrgName', 'issCountry', 'serialNumber', 'startDate', 'endDate', 'download', 'revoke'];
+  displayedColumns: string[] = ['issName', 'subjName', 'serialNumber', 'startDate', 'endDate', 'download', 'revoke'];
   myResponse: Certificate[];
   dataSource: MatTableDataSource<Certificate>;
   constructor(private certService: CertificateServiceService) { }
@@ -20,6 +20,7 @@ export class AllCertificatesComponent implements OnInit {
     this.certService.getAllCertificates().subscribe(
       data => {
         this.myResponse = data;
+        console.log(data);
         this.dataSource = new MatTableDataSource<Certificate>(this.myResponse);
       },
       error => {
