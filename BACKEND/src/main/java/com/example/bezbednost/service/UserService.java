@@ -12,8 +12,8 @@ public class UserService {
     @Autowired
     UserRepo userRepo;
 
-    public User findUserByUsername(String em){
-        return userRepo.findByUsername(em);
+    public User findUserByEmail(String em){
+        return userRepo.findByEmail(em);
     }
     public User save(User user){
         return userRepo.save(user);
@@ -30,7 +30,7 @@ public class UserService {
 
         for(User u : tmp)
         {
-            if(u.getUsername().equals(us))
+            if(u.getEmail().equals(us))
                 return u;
         }
 
@@ -44,7 +44,7 @@ public class UserService {
 
         for(User u1 : tmp)
         {
-            if(u.getUsername().equals(u1.getUsername())) {
+            if(u.getEmail().equals(u1.getEmail())) {
                 u1 = u;
                 userRepo.save(u1);
                 return true;
@@ -53,4 +53,5 @@ public class UserService {
 
         return false;
     }
+
 }

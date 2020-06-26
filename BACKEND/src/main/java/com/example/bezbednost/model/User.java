@@ -2,37 +2,56 @@ package com.example.bezbednost.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name="users")
 public class User {
-
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
+    private Integer id;
 
-    private String username;
+    @Column(unique = true, nullable = false)
+    @Email(message = "Email should be valid")
+    private String email;
+
+    @Column(nullable = false)
     private String password;
-    private Role role;
 
-    public User()
-    {
+    @Column(nullable = false)
+    private boolean isAdmin;
 
-    }
+    @Column(nullable = false)
+    private boolean isBlocked;
 
+    @Column(nullable = false)
+    private boolean isActive;
+    public User() { /* empty constructor */ }
 
-    public User(String username, String password, Role role) {
-        this.username = username;
+    public User(String email, String password, boolean isAdmin) {
+        this.email = email;
         this.password = password;
-        this.role = role;
+        this.isAdmin = isAdmin;
+        this.isBlocked = false;
+        this.isActive = false;
     }
 
-    public String getUsername() {
-        return username;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -43,19 +62,28 @@ public class User {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
+    public boolean isAdmin() {
+        return isAdmin;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 
-    public Long getId() {
-        return id;
+    public boolean isBlocked() {
+        return isBlocked;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBlocked(boolean blocked) {
+        isBlocked = blocked;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }
+

@@ -1,2 +1,1 @@
-insert into users(id,username,password,role) values (100,'admin','admin',0);
-insert into admin(id,username,password) values (100,'admin','admin');
+insert into users(id,email,password,is_admin,is_blocked,is_active) values (100,'admin@admin.com','admin',true,false,false);

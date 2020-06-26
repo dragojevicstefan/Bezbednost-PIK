@@ -5,10 +5,15 @@ import { AdminHomePageComponent } from './components/admin-home-page/admin-home-
 import {AddCertificateComponent} from './components/add-certificate/add-certificate.component';
 import {AddSelfsignedComponent} from './components/add-selfsigned/add-selfsigned.component';
 import {AllCertificatesComponent} from './components/all-certificates/all-certificates.component';
+import {ClientHomePageComponent} from './components/client-home-page/client-home-page.component';
+import {ClientAllCertificatesComponent} from "./components/client-all-certificates/client-all-certificates.component";
+import {RegistrationComponent} from "./components/registration/registration.component";
+import {LogInfoListComponent} from "./components/log-info-list/log-info-list.component";
+import {RegistrationAdminComponent} from "./components/registration-admin/registration-admin.component";
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'login',
         component: LoginComponentComponent,
       },
       {
@@ -26,6 +31,27 @@ const routes: Routes = [
   {
     path: 'admin/all-certificates',
     component: AllCertificatesComponent
+  },
+  {
+    path: 'client/home',
+    component: ClientHomePageComponent
+  },
+  {
+    path: 'client/all-certificates',
+    component: ClientAllCertificatesComponent
+  }
+  ,
+  {
+    path: 'registration',
+    component: RegistrationComponent
+  },
+  {
+    path:'admin/logs',
+    component: LogInfoListComponent
+  },
+  {
+    path: 'registrationAdmin',
+    component: RegistrationAdminComponent
   }
 ];
 

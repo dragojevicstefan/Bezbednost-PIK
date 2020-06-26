@@ -8,7 +8,8 @@ export const environment = {
   login: '/login',
   admin:'/admin',
   user:'/user',
-  certificate:'/certificate'
+  certificate:'/certificate',
+  client:'/client'
 };
 
 /*

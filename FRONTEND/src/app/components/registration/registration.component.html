@@ -1,0 +1,46 @@
+<mat-card class="mat-elevation-z10">
+  <mat-toolbar color="primary">
+    <h2>
+      Register
+    </h2>
+  </mat-toolbar>
+
+  <form [formGroup]="registerForm" class="register-form">
+
+    <mat-form-field>
+      <input name="email" matInput placeholder="Email" formControlName="email" />
+      <mat-error *ngIf="registerForm.hasError('required', 'email')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="registerForm.hasError('email', 'email')">
+        Email is not valid
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        name="password"
+        matInput
+        placeholder="Password"
+        formControlName="password"
+        type="password"
+      />
+      <mat-error *ngIf="registerForm.hasError('required', 'password')">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="registerForm.hasError('minlength', 'password')">
+        Password must be at least 6 characters long
+      </mat-error>
+      <mat-error *ngIf="registerForm.hasError('pattern', 'password')">
+        Password must contain at least 1 lowercase, 1 uppercase letter and 1 number
+      </mat-error>
+    </mat-form-field>
+
+
+
+
+    <button mat-raised-button color="primary" (click)="register()" [disabled]="!registerForm.valid">
+      Register
+    </button>
+  </form>
+</mat-card>

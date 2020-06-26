@@ -63,8 +63,14 @@ public class OcspService  {
     }
 
 
-    public void check(String serialNumber) {
-        if(revocationRepository.findBySerial(serialNumber).isValid());
+    public int check(String serialNumber) {
+        if(revocationRepository.findBySerial(serialNumber)==null){
+            return 0;
+        }else {
+            if(revocationRepository.findBySerial(serialNumber).isValid())
+                return 1;
+        }
+        return 2;
     }
 
 

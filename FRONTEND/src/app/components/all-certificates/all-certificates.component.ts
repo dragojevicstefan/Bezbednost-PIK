@@ -11,7 +11,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class AllCertificatesComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
-  displayedColumns: string[] = ['issName', 'subjName', 'serialNumber', 'startDate', 'endDate', 'download', 'revoke'];
+  displayedColumns: string[] = ['issName', 'subjName', 'serialNumber', 'startDate', 'endDate', 'download', 'revoke','check'];
   myResponse: Certificate[];
   dataSource: MatTableDataSource<Certificate>;
   constructor(private certService: CertificateServiceService) { }
@@ -31,6 +31,7 @@ export class AllCertificatesComponent implements OnInit {
   revoke(certificate: Certificate) {
     this.certService.revokeCertificate(certificate).subscribe(
       res => {
+        console.log(res);
         alert('Revoked');
       },
       error => {
@@ -40,18 +41,18 @@ export class AllCertificatesComponent implements OnInit {
   }
 
 
-  // isRevoked(cert: Certificate): boolean {
-  //   this.certService.checkCertificateStatus(cert).subscribe(
-  //     res =>{
-  //       alert('Already revoked');
-  //       return true;
-  //     }, error => {
-  //       alert('Error revoke');
-  //       return false;
-  //     }
-  //   );
-  //   return false;
-  // }
+  isRevoked(cert: Certificate): boolean {
+    this.certService.checkCertificateStatus(cert).subscribe(
+      res =>{
+        alert('Already revoked');
+        return true;
+      }, error => {
+        alert('Error revoke');
+        return false;
+      }
+    );
+    return false;
+  }
 
 
   download(certificate: Certificate) {
